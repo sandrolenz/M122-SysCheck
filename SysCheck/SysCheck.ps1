@@ -1,4 +1,4 @@
-﻿# ---------------------------------
+# ---------------------------------
 #  SysCheck v1.1
 #  by Matteo Stählin & Sandro Lenz
 # ---------------------------------
@@ -12,7 +12,7 @@ $MainGUI = New-Object System.Windows.Forms.Form
 
 Clear-host
 
-Write-Host "Program Path: $PSScriptRoot" -ForegroundColor DarkCyan
+Write-Host "Program Path: C:\SysCheck" -ForegroundColor DarkCyan
 
 #  Main GUI
 # ----------
@@ -20,7 +20,7 @@ Write-Host "Program Path: $PSScriptRoot" -ForegroundColor DarkCyan
 # Cosmetics
 
 $MainGUI.Text = "SysCheck"
-$MainGUI.Icon = "$PSScriptRoot\SysCheck-Icon.ico"
+$MainGUI.Icon = "C:\SysCheck\SysCheck-Icon.ico"
 $MainGUI.Width = 1200
 $MainGUI.Height = 600
 
@@ -77,7 +77,7 @@ function doCheck {
 function func_Systeminfo {
     try {
         "<br><br><h3>Systeminformationen:</h3><br>" | Add-Content -Path "$reportPath"
-        $conf_Systeminfo = Get-Content -Path "$PSScriptRoot\config_Systeminfo.txt"
+        $conf_Systeminfo = Get-Content -Path "C:\SysCheck\config_Systeminfo.txt"
         Get-ComputerInfo | ConvertTo-Html -property $conf_Systeminfo -as List | Add-Content -Path "$reportPath"
         Write-Host "Log: Info 113 - Systeminformationen erfolgreich ausgelesen" -ForegroundColor Yellow
     } catch { 
